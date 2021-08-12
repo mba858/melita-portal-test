@@ -29,7 +29,7 @@
                     <div class="spinner_wrap">
                         <mat-spinner [diameter]="20" [style.display]="offer.loadingSubscriptions ? 'block' : 'none'"></mat-spinner>
                     </div>
-                    <div *ngFor="let subscription of offer.subscriptions">
+                    <div class="subscription_item" *ngFor="let subscription of offer.subscriptions">
                         <mat-grid-list cols="1" rowHeight="40px">
                             <mat-grid-tile class="subscription_item">
                                 <p>{{subscription.name}}
@@ -38,7 +38,7 @@
                             </mat-grid-tile>
                         </mat-grid-list>
                         <div *ngFor="let usage of subscription.usage;">
-                            <p><span>{{usage.type}}:</span> {{usage.used}}/{{usage.limit}}</p>
+                            <p><span class="detail_extra">{{usage.type}}:</span> {{usage.used}}/{{usage.limit}}</p>
                         </div>
                     </div>
                 </div>
