@@ -38,7 +38,9 @@
                             </mat-grid-tile>
                         </mat-grid-list>
                         <div *ngFor="let usage of subscription.usage;">
-                            <p><span class="detail_extra">{{usage.type}}:</span> {{usage.used}}/{{usage.limit}}</p>
+                            <p><span class="detail_extra">{{usage.type}}:</span> {{usage.used}}/{{usage.limit}}
+                                <span>* {{usage.left}} % remaining</span>
+                            </p>
                         </div>
                     </div>
                 </div>

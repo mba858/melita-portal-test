@@ -50,13 +50,22 @@ export class HomeComponent implements OnInit {
       this.homeService.getOfferSubscriptionsApi(offer.id).subscribe(
         (response: any) => {
           offer.loadingSubscriptions = false;
-          console.log(response);
           offer.subscriptions = response.subscriptions;
+          offer.subscriptions.forEach((offerSub) => {
+            offerSub.usage.forEach((usage) => {
+              let left = (usage.used / usage.limit) * 100;
+              usage['left'] = parseInt(left + '');
+            });
+          });
         },
         (error) => {
-          this._snackBar.open('Failed to load subscriptions. Please try again!', 'Dance', {
-            duration: 2000,
-          });
+          this._snackBar.open(
+            'Failed to load subscriptions. Please try again!',
+            'Dance',
+            {
+              duration: 2000,
+            }
+          );
           offer.loadingSubscriptions = false;
           offer.showing = false;
         }
