@@ -1,0 +1,38 @@
+mat-card {
+    position: absolute;
+    text-align: center;
+    height: 250px;
+    background-color: transparent;
+    width: 60%;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    mat-form-field {
+        width: 100%;
+    }
+    .mat-input-element {
+        color: white;
+    }
+    .invalid-feedback {
+        color: red;
+        text-align: center;
+    }
+    mat-spinner {
+        width: 50px;
+        text-align: center;
+    }
+    .spinner_wrap {
+        min-height: 50px;
+        width: 100%;
+        display: block;
+        text-align: center;
+        .mat-progress-spinner {
+            position: absolute;
+            right: 0;
+            left: 0;
+            margin: auto;
+        }
+    }
+}

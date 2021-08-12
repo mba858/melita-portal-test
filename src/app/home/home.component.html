@@ -1,0 +1,22 @@
+<mat-toolbar>
+    <span>Home</span>
+    <span class="example-spacer"></span>
+    <button class="logout" (click)="logout()" mat-raised-button color="primary">Logout</button>
+
+
+</mat-toolbar>
+
+<mat-card>
+    <mat-card-content>
+        <h3>Malita Offers</h3>
+        <div class="spinner_wrap">
+            <mat-spinner [diameter]="40" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+        </div>
+        <mat-list role="list">
+            <mat-list-item *ngFor="let offer of offers;" role="listitem">
+                <h5>{{offer.name}}</h5>
+            </mat-list-item>
+        </mat-list>
+    </mat-card-content>
+
+</mat-card>
