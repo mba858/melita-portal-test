@@ -58,6 +58,16 @@ mat-toolbar {
     }
     .sub_list {
         text-align: center;
+        .subscription_item {
+            span {
+                font-size: 10px;
+                color: gray;
+            }
+        }
+    }
+    .subscription_item {
+        background: rgb(251, 249, 249);
+        background: 1px soldi rgb(233, 232, 232);
     }
     .spinner_wrap {
         min-height: 50px;

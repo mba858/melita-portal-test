@@ -30,12 +30,11 @@
                         <mat-spinner [diameter]="20" [style.display]="offer.loadingSubscriptions ? 'block' : 'none'"></mat-spinner>
                     </div>
                     <div *ngFor="let subscription of offer.subscriptions">
-                        <mat-grid-list cols="2" rowHeight="70px">
-                            <mat-grid-tile>
-                                {{subscription.name}}
-                            </mat-grid-tile>
-                            <mat-grid-tile>
-                                {{subscription.type}}
+                        <mat-grid-list cols="1" rowHeight="40px">
+                            <mat-grid-tile class="subscription_item">
+                                <p>{{subscription.name}}
+                                    <span> ({{subscription.type}})</span>
+                                </p>
                             </mat-grid-tile>
                         </mat-grid-list>
                         <div *ngFor="let usage of subscription.usage;">
