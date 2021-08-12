@@ -12,6 +12,7 @@ import { HomeService } from './home.service';
 export class HomeComponent implements OnInit {
   public showSpinner: boolean;
   public offers: any = [];
+  public offerSubscriptions: any = [];
 
   constructor(
     private router: Router,
@@ -23,15 +24,40 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.showSpinner = true;
     this.homeService.getOffersApi().subscribe(
-      (response:any) => {
+      (response: any) => {
         this.showSpinner = false;
-        console.log(response);
         this.offers = response.offers;
+        this.offers.map((x) => {
+          x['subscriptions'] = [];
+          x['loadingSubscriptions'] = false;
+          x['showing'] = false;
+        });
+        console.log(this.offers);
       },
       (error) => {
         this.showSpinner = false;
       }
     );
+  }
+
+  /**
+   * Loading per offer subscriptions
+   */
+  loadOfferSubscription(offer) {
+    if (!offer.showing) {
+      offer.loadingSubscriptions = true;
+      offer.showing = true;
+      this.homeService.getOfferSubscriptionsApi(offer.id).subscribe(
+        (response: any) => {
+          offer.loadingSubscriptions = false;
+          console.log(response);
+          offer.subscriptions = response.subscriptions;
+        },
+        (error) => {
+          offer.loadingSubscriptions = false;
+        }
+      );
+    } else offer.showing = false;
   }
 
   logout() {

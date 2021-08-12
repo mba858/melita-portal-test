@@ -19,6 +19,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { InterceptorService } from './interceptor';
 import { HomeService } from './home/home.service';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, HomeComponent],
@@ -32,7 +34,9 @@ import { HomeService } from './home/home.service';
     MatIconModule,
     MatToolbarModule,
     MatListModule,
+    MatDividerModule,
     MatProgressSpinnerModule,
+    MatGridListModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
@@ -43,6 +47,8 @@ import { HomeService } from './home/home.service';
     MatToolbarModule,
     MatSnackBarModule,
     MatIconModule,
+    MatGridListModule,
+    MatDividerModule,
     MatListModule,
     MatInputModule,
     MatProgressSpinnerModule,

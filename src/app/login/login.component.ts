@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
         .subscribe(
           (response: any) => {
             this.showSpinner = false;
-            localStorage.setItem('authToken', response.authToken);
+            this.authService.setSessionToken(response.authToken);
             this.router.navigate(['/home']);
           },
           (errorr) => {

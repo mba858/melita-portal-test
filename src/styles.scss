@@ -9,3 +9,9 @@ body {
     background: linear-gradient(to left, #00a3e0, #de4097);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
+* {
+    font-family: Muli/* Replace with your custom font */
+    , sans-serif !important;
+    /* Add !important to overwrite all elements */
+}

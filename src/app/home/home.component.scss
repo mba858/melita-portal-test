@@ -6,12 +6,46 @@ mat-toolbar {
     }
 }
 
-mat-card-content {
+.main_section {
     min-height: 300px;
     margin-top: 50px;
-    h3 {
+    text-align: center;
+    h1 {
         text-align: center;
-        color: #00a3e0;
+        color: #de4097;
+    }
+    mat-list-item-content {
+        text-align: center;
+        mat-list-item {
+            width: 60%;
+        }
+    }
+    .list_item_ {
+        width: 100%;
+        margin-bottom: 20px;
+        h3 {
+            color: #00a3e0;
+            font-size: 25px;
+            img {
+                vertical-align: middle;
+                width: 30px;
+            }
+        }
+        p {
+            width: 100%;
+            display: block;
+            span {
+                color: #de4097;
+            }
+        }
+        .details {
+            position: absolute;
+            font-size: 12px;
+            bottom: 15px;
+        }
+    }
+    .sub_list {
+        text-align: center;
     }
     .spinner_wrap {
         min-height: 50px;

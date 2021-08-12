@@ -17,4 +17,14 @@ export class HomeService {
     var url = `${environment.apiBaseUrl}offers`;
     return this.http.get(url);
   }
+
+  /**
+   * Get Subscriptions of offer API
+   * GET type
+   * @returns
+   */
+  getOfferSubscriptionsApi(offerId) {
+    var url = `${environment.apiBaseUrl}offers/${offerId}/subscriptions`;
+    return this.http.get(url);
+  }
 }

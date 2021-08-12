@@ -35,6 +35,11 @@ export class AuthService {
     this.sessionToken = null;
   }
 
+  setSessionToken(authToken) {
+    localStorage.setItem('authToken', authToken);
+    this.sessionToken = authToken;
+  }
+
   /**
    * Params for POST type login api {email, password}
    * @param params
