@@ -14,7 +14,7 @@
         </div>
         <mat-list role="list">
             <div class="row list_item_" *ngFor="let offer of offers;" role="listitem">
-                <mat-grid-list cols="2" rowHeight="200px">
+                <mat-grid-list cols="2" rowHeight="150px">
                     <mat-grid-tile>
                         <h3><img src="../../assets/star.png" /> {{offer.name}}</h3>
                     </mat-grid-tile>
@@ -22,17 +22,25 @@
                         <p><span>From:</span> {{offer.contractStartDate}} </p>
                         <p><span>To:</span> {{offer.contractEndDate}}</p>
                     </mat-grid-tile>
-                    <button class="details" (click)="loadOfferSubscription(offer)" mat-raised-button color="primary">Details</button>
                 </mat-grid-list>
+                <button class="details" (click)="loadOfferSubscription(offer)" mat-raised-button color="primary">Details</button>
                 <div class="sub_list" *ngIf="offer.showing">
-                    <mat-spinner [diameter]="20" [style.display]="offer.loadingSubscriptions ? 'block' : 'none'"></mat-spinner>
+                    <h1>Subscriptions</h1>
+                    <div class="spinner_wrap">
+                        <mat-spinner [diameter]="20" [style.display]="offer.loadingSubscriptions ? 'block' : 'none'"></mat-spinner>
+                    </div>
                     <div *ngFor="let subscription of offer.subscriptions">
-                        <p>{{subscription.name}}</p>
-                        <p>{{subscription.type}}</p>
-                        <p *ngFor="let usage of subscription.usage;">
-                            <span>{{usage.type}}</span>
-                            <span>{{usage.used}}/{{usage.limit}}</span>
-                        </p>
+                        <mat-grid-list cols="2" rowHeight="70px">
+                            <mat-grid-tile>
+                                {{subscription.name}}
+                            </mat-grid-tile>
+                            <mat-grid-tile>
+                                {{subscription.type}}
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                        <div *ngFor="let usage of subscription.usage;">
+                            <p><span>{{usage.type}}:</span> {{usage.used}}/{{usage.limit}}</p>
+                        </div>
                     </div>
                 </div>
                 <mat-divider></mat-divider>

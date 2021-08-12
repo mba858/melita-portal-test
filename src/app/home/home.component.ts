@@ -54,7 +54,11 @@ export class HomeComponent implements OnInit {
           offer.subscriptions = response.subscriptions;
         },
         (error) => {
+          this._snackBar.open('Failed to load subscriptions. Please try again!', 'Dance', {
+            duration: 2000,
+          });
           offer.loadingSubscriptions = false;
+          offer.showing = false;
         }
       );
     } else offer.showing = false;

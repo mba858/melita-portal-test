@@ -21,6 +21,7 @@ mat-toolbar {
         }
     }
     .list_item_ {
+        position: relative;
         width: 100%;
         margin-bottom: 20px;
         h3 {
@@ -39,9 +40,20 @@ mat-toolbar {
             }
         }
         .details {
-            position: absolute;
             font-size: 12px;
             bottom: 15px;
+        }
+        .spinner_wrap {
+            min-height: 50px;
+            width: 100%;
+            display: block;
+            text-align: center;
+            .mat-progress-spinner {
+                position: absolute;
+                right: 0;
+                left: 0;
+                margin: auto;
+            }
         }
     }
     .sub_list {
