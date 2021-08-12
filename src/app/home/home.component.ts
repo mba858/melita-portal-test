@@ -52,10 +52,11 @@ export class HomeComponent implements OnInit {
           offer.loadingSubscriptions = false;
           offer.subscriptions = response.subscriptions;
           offer.subscriptions.forEach((offerSub) => {
-            offerSub.usage.forEach((usage) => {
-              let left = (usage.used / usage.limit) * 100;
-              usage['left'] = parseInt(left + '');
-            });
+            if (offerSub.usage)
+              offerSub.usage.forEach((usage) => {
+                let left = (usage.used / usage.limit) * 100;
+                usage['left'] = Number(100 - parseInt(left + ''));
+              });
           });
         },
         (error) => {
